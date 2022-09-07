@@ -4,6 +4,12 @@ let channel_http = "https://www.googleapis.com/youtube/v3/channels?";
 
 const videoCardContainer = document.querySelector(".video-container");
 
+const searchInput = document.querySelector(".search-bar");
+
+const searchBtn = document.querySelector(".search-btn");
+
+let searchLink = "https://www.youtube.com/results?search_query=";
+
 fetch(
   video_http +
     new URLSearchParams({
@@ -53,3 +59,9 @@ const getChannelIcon = (video_data) => {
     `;
   };
 };
+
+searchBtn.addEventListener("click", () => {
+  if (searchInput.ariaValueMax.length) {
+    location.href = searchLink + searchInput.value;
+  }
+});
